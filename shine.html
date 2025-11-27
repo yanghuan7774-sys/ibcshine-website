@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHINE Series · 三合智造不锈钢吨桶</title>
+
+  <style>
+    :root {
+      --primary: #0080c9;
+      --primary-dark: #005c99;
+      --text: #222;
+      --muted: #666;
+      --border: #e3e7ef;
+      --bg: #f5f7fb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+        "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      color: var(--text);
+      background-color: #fff;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container {
+      width: 94%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    header {
+      border-bottom: 1px solid var(--border);
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .logo span {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-cta {
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    }
+
+    /* 顶部区域 */
+    .hero {
+      padding: 40px 0 34px;
+      background: linear-gradient(180deg, #f7f9ff 0%, #ffffff 60%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-title {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .hero-title h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .hero-title h1 span {
+      color: var(--primary-dark);
+    }
+
+    .hero-title p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .hero-tags {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 128, 201, 0.16);
+      background-color: #ffffff;
+      color: var(--muted);
+    }
+
+    /* --- 新增：主图样式 --- */
+    .hero-image {
+        width: 100%;
+        max-width: 1400px;
+        margin: 30px auto 0; /* 顶部增加30px间距，防止紧贴文字 */
+        display: block;
+        /* 可选：加一点圆角或阴影让图片更融合，不需要可删除 */
+        border-radius: 12px; 
+    }
+
+    /* 产品列表区域 */
+    .section {
+      padding: 40px 0 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .section-title p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background-color: #ffffff;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .product-img {
+      height: 220px;
+      background-color: #f3f5fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-img span {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .product-body {
+      padding: 16px 18px 18px;
+      border-top: 1px solid #edf0f7;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .product-title {
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .product-subtitle {
+      font-size: 13px;
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .product-meta {
+      font-size: 12px;
+      color: var(--muted);
+      background: #f8f9fc;
+      padding: 8px;
+      border-radius: 6px;
+    }
+
+    .product-meta strong {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .product-specs {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    .product-specs ul {
+        padding-left: 10px;
+    }
+
+    .product-specs li {
+      margin-bottom: 3px;
+      list-style-type: disc;
+    }
+
+    .product-footer {
+      margin-top: auto;
+      padding-top: 8px;
+      font-size: 11px;
+      color: var(--primary-dark);
+      border-top: 1px dashed #edf0f7;
+      text-align: center;
+    }
+
+    .note {
+      margin-top: 36px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* --- AI 助手 样式 --- */
+    .ai-fab {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, #0080c9, #005c99);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        box-shadow: 0 4px 15px rgba(0, 92, 153, 0.4);
+        cursor: pointer;
+        z-index: 1000;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 2px solid rgba(255,255,255,0.2);
+    }
+
+    .ai-fab:hover {
+        transform: scale(1.1) rotate(10deg);
+    }
+
+    .ai-modal {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 380px;
+        max-width: 90vw;
+        background: white;
+        border-radius: 18px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        border: 1px solid rgba(0,0,0,0.05);
+        z-index: 999;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ai-header {
+        background: linear-gradient(135deg, #f5f7fa, #fff);
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ai-title {
+        font-weight: 700;
+        color: var(--primary-dark);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .ai-close {
+        cursor: pointer;
+        color: #999;
+        font-size: 20px;
+    }
+
+    .ai-tabs {
+        display: flex;
+        background: #f8f9fc;
+        padding: 4px;
+        margin: 10px 15px 0;
+        border-radius: 8px;
+    }
+
+    .ai-tab {
+        flex: 1;
+        text-align: center;
+        padding: 8px;
+        font-size: 13px;
+        cursor: pointer;
+        border-radius: 6px;
+        color: var(--muted);
+        transition: all 0.2s;
+    }
+
+    .ai-tab.active {
+        background: white;
+        color: var(--primary);
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .ai-content {
+        padding: 15px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .ai-textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 13px;
+        resize: none;
+        height: 80px;
+        background: #fdfdfd;
+        transition: border-color 0.2s;
+    }
+
+    .ai-textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        background: white;
+    }
+
+    .ai-btn {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: opacity 0.2s;
+    }
+
+    .ai-btn:hover {
+        opacity: 0.9;
+    }
+
+    .ai-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+    }
+
+    .ai-response {
+        background: #f0f7ff;
+        border-radius: 10px;
+        padding: 15px;
+        font-size: 13px;
+        color: #333;
+        line-height: 1.6;
+        display: none;
+        border: 1px solid #dbeafe;
+        white-space: pre-wrap;
+    }
+    
+    .ai-response h4 {
+        color: var(--primary-dark);
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    .ai-response ul {
+        padding-left: 20px;
+        margin: 5px 0;
+    }
+    .ai-response li {
+        list-style: disc;
+    }
+
+    .loading-spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+        display: none;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-image {
+        /* 在移动端，图片可能需要小一点的顶部间距 */
+        margin-top: 20px;
+      }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .product-grid { grid-template-columns: 1fr; }
+      .hero-image { 
+          margin-top: 20px; 
+          border-radius: 8px; /* 移动端圆角稍微小一点 */
+      }
+      .ai-fab { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 20px; }
+      .ai-modal { right: 5vw; bottom: 80px; width: 90vw; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      SHINE Series
+      <span>三合智造不锈钢吨桶</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">返回首页</a>
+      <a href="#products">全部产品</a>
+    </nav>
+    <a href="index.html#contact" class="nav-cta">获取报价</a>
+  </div>
+</header>
+
+<!-- 顶部 + 大主图 -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-title">
+      <h1>SHINE Series · <span>不锈钢吨桶 IBC</span></h1>
+      <p>食品级、化工级、标准型三大核心系列覆盖食品、化工、新能源、日化全行业。</p>
+    </div>
+
+    <div class="hero-tags">
+      <span class="hero-tag">食品 / 化工 / 日化 / 新能源</span>
+      <span class="hero-tag">食品级锥底 | 3.0mm 重载 | 标准型</span>
+      <span class="hero-tag">支持 304 / 316L</span>
+      <span class="hero-tag">支持非标定制</span>
+    </div>
+
+    <!-- ✅ 已修改：插入本地主图 -->
+    <img src="Hero Image.png" alt="SHINE 不锈钢吨桶主图" class="hero-image">
+    
+  </div>
+</section>
+
+<!-- 产品区域 -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-title">
+      <h2>SHINE 系列产品</h2>
+      <p>ONE / PRO / LITE 三大系列型号，一眼就看懂差异</p>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- SHINE ONE -->
+      <article class="product-card">
+        <div class="product-img">
+          <span></span>
+        </div>
+        <div class="product-body">
+          <div class="product-title">SHINE ONE（食品级 · 锥底）</div>
+          <div class="product-subtitle">Food-Grade IBC · 1000L</div>
+          
+          <div class="product-meta">
+            <strong>特点：</strong> 镜面内胆 · 锥底排空 · DN400 大人孔 · 卫生级焊缝
+          </div>
+
+          <div class="product-specs">
+            <ul>
+              <li>容积：1000L</li>
+              <li>材质：304 / 316L 可选</li>
+              <li>工艺：内胆抛光 · 外表喷砂</li>
+              <li>适合食品、饮料、添加剂、化妆品原料</li>
+            </ul>
+          </div>
+
+          <div class="product-footer">
+            最高卫生要求的食品级 IBC 选择
+          </div>
+        </div>
+      </article>
+
+      <!-- SHINE PRO -->
+      <article class="product-card">
+        <div class="product-img">
+          <span></span>
+        </div>
+        <div class="product-body">
+          <div class="product-title">SHINE PRO（重载 · 3.0mm）</div>
+          <div class="product-subtitle">Heavy-Duty IBC · 1000L</div>
+          
+          <div class="product-meta">
+            <strong>特点：</strong> 3.0mm 板材 · 高强度框架 · 耐强酸强碱
+          </div>
+
+          <div class="product-specs">
+            <ul>
+              <li>容积：1000L</li>
+              <li>壁厚：3.0mm</li>
+              <li>材质：304 / 316</li>
+              <li>适合化工、电解液、腐蚀性液体</li>
+            </ul>
+          </div>
+
+          <div class="product-footer">
+            化工级 · 高强度 · 长寿命
+          </div>
+        </div>
+      </article>
+
+      <!-- SHINE LITE -->
+      <article class="product-card">
+        <div class="product-img">
+          <span></span>
+        </div>
+        <div class="product-body">
+          <div class="product-title">SHINE LITE（标准 · 集装式）</div>
+          <div class="product-subtitle">Standard IBC · 1000L</div>
+          
+          <div class="product-meta">
+            <strong>特点：</strong> 轻量化结构 · 高性价比 · 可堆叠周转
+          </div>
+
+          <div class="product-specs">
+            <ul>
+              <li>容积：1000L</li>
+              <li>材质：304</li>
+              <li>适合日化、化工、仓储物流</li>
+              <li>可定制 DN150/200 顶盖 & DN50/80 阀门</li>
+            </ul>
+          </div>
+
+          <div class="product-footer">
+            通用化工与仓储周转最佳选择
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="note">
+      以上为标准参数，可根据物料粘度、温度、腐蚀性、周转方式进行非标定制。
+    </div>
+
+  </div>
+</section>
+
+<!-- AI Assistant Floating Button -->
+<div class="ai-fab" onclick="toggleAIModal()">✨</div>
+
+<!-- AI Modal -->
+<div class="ai-modal" id="aiModal">
+    <div class="ai-header">
+        <div class="ai-title">✨ AI 智能顾问 <span style="font-size:10px; color:#999; font-weight:400; margin-left:5px;">Powered by Gemini</span></div>
+        <div class="ai-close" onclick="toggleAIModal()">×</div>
+    </div>
+    
+    <div class="ai-tabs">
+        <div class="ai-tab active" onclick="switchTab('selector')" id="tab-selector">智能选型</div>
+        <div class="ai-tab" onclick="switchTab('custom')" id="tab-custom">定制咨询</div>
+    </div>
+
+    <div class="ai-content">
+        <div id="selector-view">
+            <p style="font-size:12px; color:#666; margin-bottom:8px;">请输入您的<b>物料名称</b>（如：浓硫酸、蜂蜜）或<b>使用场景</b>，AI 将为您推荐最匹配的 SHINE 系列型号并分析化学兼容性。</p>
+            <textarea class="ai-textarea" id="selector-input" placeholder="例如：我需要储存98%的浓硫酸，温度常温..."></textarea>
+        </div>
+        
+        <div id="custom-view" style="display:none;">
+            <p style="font-size:12px; color:#666; margin-bottom:8px;">请描述您的<b>特殊工艺需求</b>（如：加热温度、搅拌要求、特殊接口），AI 将为您生成初步技术方案。</p>
+            <textarea class="ai-textarea" id="custom-input" placeholder="例如：物料需要加热到80度，并需要低速搅拌防止沉淀..."></textarea>
+        </div>
+
+        <button class="ai-btn" onclick="callGemini()" id="ai-submit-btn">
+            <span class="btn-text">开始分析</span>
+            <div class="loading-spinner"></div>
+        </button>
+
+        <div class="ai-response" id="ai-response">
+            <!-- AI Response will appear here -->
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentMode = 'selector'; // 'selector' or 'custom'
+    const apiKey = ""; // System provides key
+
+    function toggleAIModal() {
+        const modal = document.getElementById('aiModal');
+        const fab = document.querySelector('.ai-fab');
+        if (modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            fab.style.transform = 'scale(1)';
+        } else {
+            modal.style.display = 'flex';
+            fab.style.transform = 'scale(0) rotate(360deg)'; // Hide button nicely
+            setTimeout(() => fab.style.display = 'none', 300);
+        }
+        
+        // Reset if closed
+        if(modal.style.display === 'none') {
+             fab.style.display = 'flex';
+             setTimeout(() => fab.style.transform = 'scale(1)', 10);
+        }
+    }
+
+    function switchTab(mode) {
+        currentMode = mode;
+        document.querySelectorAll('.ai-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById(`tab-${mode}`).classList.add('active');
+
+        document.getElementById('selector-view').style.display = mode === 'selector' ? 'block' : 'none';
+        document.getElementById('custom-view').style.display = mode === 'custom' ? 'block' : 'none';
+        
+        // Reset response area when switching tabs
+        document.getElementById('ai-response').style.display = 'none';
+        document.getElementById('ai-response').innerHTML = '';
+        
+        // Update button text
+        const btnText = document.querySelector('.btn-text');
+        btnText.innerText = mode === 'selector' ? '开始智能选型' : '生成定制方案';
+    }
+
+    async function callGemini() {
+        const inputId = currentMode === 'selector' ? 'selector-input' : 'custom-input';
+        const userQuery = document.getElementById(inputId).value.trim();
+
+        if (!userQuery) {
+            alert('请输入描述内容');
+            return;
+        }
+
+        const btn = document.getElementById('ai-submit-btn');
+        const spinner = document.querySelector('.loading-spinner');
+        const btnText = document.querySelector('.btn-text');
+        const responseArea = document.getElementById('ai-response');
+
+        // UI Loading State
+        btn.disabled = true;
+        spinner.style.display = 'block';
+        btnText.style.display = 'none';
+        responseArea.style.display = 'none';
+
+        // Construct System Prompt based on mode (UPDATED FOR SHINE SERIES)
+        let systemPrompt = "";
+        if (currentMode === 'selector') {
+            systemPrompt = `你是三合智造（Sanhe IBC）的资深技术工程师。
+            现有产品库（SHINE Series）：
+            1. SHINE ONE（食品级锥底吨桶）：推荐食品、饮料、化妆品。镜面内胆，DN400人孔，锥底排空。
+            2. SHINE PRO（重载型吨桶）：推荐强腐蚀化工、危化品、高温工况。3.0mm壁厚，高强度框架。
+            3. SHINE LITE（标准型吨桶）：推荐普通化工、日化、仓储周转。轻量化设计，经济实惠。
+            
+            任务：根据用户输入的"${userQuery}"，分析化学兼容性（304/316L不锈钢），并推荐一款最合适的型号。如果物料对不锈钢有严重腐蚀风险（如盐酸），请务必给出安全警告。请用专业、亲切的中文回答，包含【推荐型号】、【兼容性分析】、【理由】三部分。`;
+        } else {
+            systemPrompt = `你是三合智造（Sanhe IBC）的技术方案顾问。
+            用户需求："${userQuery}"。
+            任务：生成一份简要的《定制技术方案建议书》。
+            内容包括：
+            1. 建议桶体材质（304或316L）。
+            2. 推荐基础型号（SHINE ONE/PRO/LITE）。
+            3. 加热/保温系统建议（如：是否需要加热夹套、电加热带）。
+            4. 搅拌系统建议（如：是否需要搅拌，推荐低速还是高速）。
+            5. 其他配件建议（如：视镜、液位计）。
+            请保持格式整洁，使用中文。`;
+        }
+
+        try {
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{ text: userQuery }]
+                    }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    }
+                })
+            });
+
+            const data = await response.json();
+            
+            if (data.error) {
+                throw new Error(data.error.message);
+            }
+
+            const aiText = data.candidates[0].content.parts[0].text;
+            
+            // Simple Markdown Formatting
+            const formattedText = aiText
+                .replace(/\*\*(.*?)\*\*/g, '<h4>$1</h4>')
+                .replace(/\*/g, '•')
+                .replace(/\n/g, '<br>');
+
+            responseArea.innerHTML = formattedText;
+            responseArea.style.display = 'block';
+
+        } catch (error) {
+            console.error(error);
+            responseArea.innerHTML = `<span style="color:red;">抱歉，AI 服务暂时不可用，请稍后再试。(${error.message})</span>`;
+            responseArea.style.display = 'block';
+        } finally {
+            // Reset UI
+            btn.disabled = false;
+            spinner.style.display = 'none';
+            btnText.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
